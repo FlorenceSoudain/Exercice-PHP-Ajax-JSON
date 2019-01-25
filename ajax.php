@@ -9,7 +9,7 @@
 
 //Remplacer les valeurs si besoin
 
-$servername = "localhost"; $username = "root"; $password = ""; $dbname = "simon";
+$servername = "localhost"; $username = "root"; $password = ""; $dbname = "exoa";
 
 $conn = new mysqli($servername, $username, $password);
 
@@ -28,6 +28,7 @@ if ($conn->connect_error) {
             break;
         case"affPurchased":
             //Votre code ici
+            $res = "SELECT `product_name` FROM `products`, `products_purchased` WHERE `products`.`product_id` = `products_purchased`.`products_id`";
             break;
     }
 

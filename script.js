@@ -46,6 +46,12 @@ function ajaxCall(params)
                     case"affPurchased":
 
                         //Votre code ici
+                        for(var i2 in json)
+                        {
+                            var div2 = document.createElement('div');
+                            div2.innerHTML = "<h1>"+json[i2].product_name+"</h1>";
+                            document.getElementById('ajaxContent').appendChild(div2);
+                        }
 
                         break;
 
@@ -85,3 +91,14 @@ document.getElementById('affProducts').addEventListener('click', function()
 
 
 //Ajouter un event listener pour detecter le click sur le second lien
+document.getElementById('affPurchased').addEventListener('click', function()
+{
+    ajaxCall(
+        {'url' : 'ajax.php',
+            'parameters' : [
+                {'action' : 'affPurchased'}
+            ]
+        }
+    );
+
+});
